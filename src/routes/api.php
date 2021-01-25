@@ -17,5 +17,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::apiResource( 'employe',                          'Api\EmployeController');
-Route::get(         'employe/export',                   'Api\EmployeController@export')                     ->name('employe.export');
-Route::post(        'employe/import',                   'Api\EmployeController@import')                     ->name('employe.import');
+Route::get(         'export',                   'Api\EmployeController@export')                     ->name('employe.export');
+Route::post(        'import',                   'Api\EmployeController@import')                     ->name('employe.import');
