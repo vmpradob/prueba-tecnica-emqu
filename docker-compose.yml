@@ -1,0 +1,52 @@
+version: "3"
+
+networks:
+  laravel:
+
+services:
+  webService:
+    image: nginx:stable-alpine
+    container_name: nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/var/www/html
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+      - database
+    networks:
+      - laravel
+
+  database:
+    image: mysql:5.7.22
+    container_name: mysql
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: emquDB
+      MYSQL_USER: emqu
+      MYSQL_PASSWORD: emqu_pass
+      MYSQL_ROOT_PASSWORD: emqu_pass_root
+      SERVICE_TAG: dev
+      SERVICE_NAME: mysql
+
+    networks:
+      - laravel
+
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: php
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - "9000:9000"
+    networks:
+      - laravel 
+  
