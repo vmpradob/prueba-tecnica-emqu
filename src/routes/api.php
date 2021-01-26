@@ -16,6 +16,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::apiResource( 'employe',                          'Api\EmployeController');
+Route::apiResource( 'employe',                  'Api\EmployeController');
 Route::get(         'export',                   'Api\EmployeController@export')                     ->name('employe.export');
 Route::post(        'import',                   'Api\EmployeController@import')                     ->name('employe.import');

@@ -9,11 +9,12 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
+        <link href="css/app.css" rel="stylesheet" type="text/css">
+        <link href="js/app.js" rel="stylesheet" type="text/css">
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
+                background-color: #636b6f;
                 color: #636b6f;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
@@ -76,19 +77,36 @@
                     @endauth
                 </div>
             @endif
-
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+            <div class="card">
+                <div class="card-title mt-3">
+                    <H1>Manejo de empleados</H1>
                 </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <form method="GET" action="{{route('employe.export')}}" class="" target="_blank" > 
+                            <button type="submit" class="btn btn-success btn-lg btn-block">exportar empleados!</button>
+                        </form>
+                    </div>
+                    <div class="col-md-6">
+                        <form method="POST" id="import-form" enctype="multipart/form-data" action="{{route('employe.import')}}" class="" target="_blank" > 
+                        
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">importar empleados!</button>
+                        </form>
+                    </div>
+                    
                 </div>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <div class="custom-file">
+                                <input type="file" class="custom-file-input" form="import-form" name="file" id="customFile">
+                                <label class="custom-file-label" for="customFile" >Seleccione el archivo a importar</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
     </body>
