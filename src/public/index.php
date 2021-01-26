@@ -1,5 +1,5 @@
 <?php
-
+header('Access-Control-Allow-Origin: *',true);
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
