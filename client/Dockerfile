@@ -1,9 +1,5 @@
 FROM node:14-alpine
-ENV NODE_ENV=production
-WORKDIR /usr/src/app
-COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
-RUN npm install --silent 
-RUN mv node_modules ../
-COPY . .
-EXPOSE 3000
+
+RUN npm install --silent
+
 CMD ["npm", "start"]
