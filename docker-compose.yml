@@ -54,7 +54,6 @@ services:
       context: ./client
       dockerfile: Dockerfile
     container_name: client
-    working_dir: /var/www/html
     tty: true
     volumes:
       - ./client:/var/www/html
