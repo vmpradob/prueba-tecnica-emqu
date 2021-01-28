@@ -84,26 +84,10 @@
                 </div>
                 <div class="card-body">
                 <div class="row">
-                    <div class="col-md-6">
-                        <form method="GET" action="{{route('employe.export')}}" class="" target="_blank" > 
+                    <div class="col-md-12">
+                        <form method="GET" action="{{route('employe.export')}}" class=""> 
                             <button type="submit" class="btn btn-success btn-lg btn-block">exportar empleados!</button>
                         </form>
-                    </div>
-                    <div class="col-md-6">
-                        <form method="POST" id="import-form" enctype="multipart/form-data" action="{{route('employe.import')}}" class="" target="_blank" > 
-                        
-                            <button type="submit" class="btn btn-primary btn-lg btn-block">importar empleados!</button>
-                        </form>
-                    </div>
-                    
-                </div>
-                <div class="row mt-3">
-                    <div class="col-md-12">
-                        <div class="custom-file">
-                                <input type="file" class="custom-file-input" form="import-form" name="file" id="customFile">
-                                <label class="custom-file-label" for="customFile" >Seleccione el archivo a importar</label>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

@@ -84,12 +84,7 @@
                 </div>
                 <div class="card-body">
                 <div class="row">
-                    <div class="col-md-6">
-                        <form method="GET" action="{{route('employe.export')}}" class="" target="_blank" > 
-                            <button type="submit" class="btn btn-success btn-lg btn-block">exportar empleados!</button>
-                        </form>
-                    </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <form method="POST" id="import-form" enctype="multipart/form-data" action="{{route('employe.import')}}" class="" target="_blank" > 
                         
                             <button type="submit" class="btn btn-primary btn-lg btn-block">importar empleados!</button>

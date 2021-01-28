@@ -10,7 +10,8 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./src:/var/www/html
+      - ./api-1:/var/www/1/
+      - ./api-2:/var/www/2/
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - api-1
@@ -45,7 +46,7 @@ services:
       dockerfile: ./api-1/Dockerfile
     container_name: api-1
     volumes:
-      - ./api-1:/var/www/html/
+      - ./api-1:/var/www/1/
     ports:
       - "9000:9000"
     networks:
@@ -56,20 +57,8 @@ services:
       dockerfile: ./api-2/Dockerfile
     container_name: api-2
     volumes:
-      - ./api-2:/var/www/html/
+      - ./api-2:/var/www/2/
     ports:
       - "9001:9000"
-    networks:
-      - laravel
-  client:
-    build: 
-      context: ./client
-      dockerfile: Dockerfile
-    container_name: client
-    tty: true
-    volumes:
-      - ./client:/var/www/html
-    ports:
-      - "3000:3000"
     networks:
       - laravel
