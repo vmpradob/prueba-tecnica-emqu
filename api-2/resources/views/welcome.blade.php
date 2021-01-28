@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
+<!DOCTYPE html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,14 +9,13 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-        <link href="css/app.css" rel="stylesheet" type="text/css">
-        <link href="js/app.js" rel="stylesheet" type="text/css">
+
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #636b6f;
+                background-color: #fff;
                 color: #636b6f;
-                font-family: 'Raleway', sans-serif;
+                font-family: 'Raleway';
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
@@ -67,30 +66,22 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
+
+            @if (Route::has('login') && Auth::check())
                 <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
+                    <a href="{{ url('/home') }}">Dashboard</a>
+                </div>
+            @elseif (Route::has('login') && !Auth::check())
+                <div class="top-right links">
+                    <a href="{{ url('/login') }}">Login</a>
+                    <a href="{{ url('/register') }}">Register</a>
                 </div>
             @endif
+
             <div class="content">
-            <div class="card">
-                <div class="card-title mt-3">
-                    <H1>Manejo de empleados</H1>
+                <div class="title m-b-md">
+                    Laravel API 2
                 </div>
-                <div class="card-body">
-                <div class="row">
-                    <div class="col-md-12">
-                        <form method="GET" action="{{route('employe.export')}}" class=""> 
-                            <button type="submit" class="btn btn-success btn-lg btn-block">exportar empleados!</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
             </div>
         </div>
     </body>
