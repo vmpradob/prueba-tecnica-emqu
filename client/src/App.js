@@ -22,7 +22,7 @@ export default class App extends React.Component
   };
   exportEmploye(params) {
     axios({
-      url: 'http://localhost:8080/api/export',
+      url: 'http://localhost:8080/2/api/export',
       responseType: 'blob',
       method : 'GET'
     })

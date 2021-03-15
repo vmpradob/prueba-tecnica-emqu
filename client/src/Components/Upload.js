@@ -25,7 +25,7 @@ class Upload extends React.Component {
   }
 
   fileUpload(file){
-    const url = 'http://localhost:8080/api/import';
+    const url = 'http://localhost:8080/1/api/import';
     const formData = new FormData();
     formData.append('file',file)
     const config = {
