@@ -30,10 +30,10 @@ services:
     volumes:
       - ./mysql:/var/lib/mysql
     environment:
-      MYSQL_DATABASE: emquDB
-      MYSQL_USER: emqu
-      MYSQL_PASSWORD: emqu_pass
-      MYSQL_ROOT_PASSWORD: emqu_pass_root
+      MYSQL_DATABASE: systgo
+      MYSQL_USER: vmpradob
+      MYSQL_PASSWORD: pass
+      MYSQL_ROOT_PASSWORD: pass_root
       SERVICE_TAG: dev
       SERVICE_NAME: mysql
 
